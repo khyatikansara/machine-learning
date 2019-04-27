@@ -139,21 +139,22 @@ def register(request):
 	return render(request, "register.html",{})
 
 def login(request):
-   username = "not logged in"
+   # username = "not logged in"
    
-   if request.method == "POST":
-      #Get the posted form
-      MyLoginForm = LoginForm(request.POST)
+   # if request.method == "POST":
+   #    #Get the posted form
+   #    MyLoginForm = login(request.POST)
       
-      if MyLoginForm.is_valid():
-         username = MyLoginForm.cleaned_data['username']
+   #    if MyLoginForm.is_valid():
+   #       username = MyLoginForm.cleaned_data['username']
 
-   else:
-      MyLoginForm = LoginForm()
+   # else:
+   #    MyLoginForm = login(request.POST)
 
    # return HttpResponse("Success")
    return render(request, "login.html", {})
-
+def home(request):
+	return render(request, "home.html", {})
  
 # def login(request):
 # 	username = "not logged in"
