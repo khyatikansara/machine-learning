@@ -1,0 +1,61 @@
+{% extends "main.html" %}
+{% block title %}<title>Amazon</title>{% endblock %}
+{% block content %}
+
+<form name = "form" action = "{% url 'login' %}" method = "POST" >
+	{% csrf_token %}
+	<div class="col-md-12 padding">
+		<div class="row">
+			<div class="login_box col-md-5 ">
+				<div class="col-md-12"> <h1>Login to your Account</h1> </div>
+				<div class="col-md-8 input-group input-group-sm mb-3">
+			  <div class="input-group-prepend">
+			    <span class="input-group-text" id="inputGroup-sizing-sm"><i class="fa fa-envelope"></i></span>
+			  </div>
+			  <input type="email" name="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Email">
+			</div>
+				<div class="col-md-8 input-group input-group-sm mb-3">
+			  <div class="input-group-prepend">
+			    <span class="input-group-text" id="inputGroup-sizing-sm"><i class="fa fa-lock"></i></span>
+			  </div>
+			  <input type="password" name="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Password">
+			</div>
+			<div class="remember">
+				<div class="form-check mb-2 mr-sm-2 mb-sm-0">
+			    <label class="form-check-label">
+			      <input class="form-check-input" type="checkbox"> Remember me
+			    </label>
+			  </div>
+			</div><br>
+  				<div class="col-md-8 form-group">
+				<button type="button" class="btn btn-outline-success">Login</button>
+			</div>
+  				<hr>
+  				<a href="register" target="_self"> New to Milan Barcode Labels? Create an account</a>
+			</div>
+			<div class="col-md-1 or">
+				<span class="dot">OR</span>
+			</div>
+			<div class="im col-md-5">
+				<div class="social1"><h1>Sign in with</h1></div> 
+				<div class="social2"><h1>social network</h1></div>
+				<div class="socialbtn">
+					<a href="https://www.facebook.com" target="_blank">
+			   <button type="button" class="btnsize1 btn btn-primary btn-lg">Login with Facebook</button>
+				</a>
+				</div>
+				<div class="socialbtn">
+					<a href="https://www.twitter.com" target="_blank">
+			    <button type="button" class="btnsize2 btn btn-primary btn-lg">Login with Twitter</button>
+				</a>
+				</div>
+				<div class="socialbtn">
+					<a href="https://www.gmail.com" target="_blank">
+			    <button type="button" class="btnsize3 btn btn-primary btn-lg">Login with Google+</button>
+				</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</form> 
+{% endblock %}

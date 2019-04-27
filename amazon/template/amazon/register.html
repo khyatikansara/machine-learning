@@ -1,0 +1,125 @@
+{% extends "main.html" %}
+{% block title %}<title>Amazon</title>{% endblock %}
+{% block content %}
+
+<form name = "form" action = "{% url 'register' %}" method = "POST" >
+	{% csrf_token %}
+	<div class="col-md-12 padding">
+		<div class="row">
+			<div class="box col-md-5 ">
+				<div class="col-md-12"> <h1>Sign up</h1> </div>
+				<div class="col-md-8 input-group input-group-sm mb-3">
+				  <div class="input-group-prepend">
+				    <span class="input-group-text" id="inputGroup-sizing-sm"><i class="fa fa-user"></i></span>
+				  </div>
+				  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="User Name" name="username">
+				</div>
+				<div class="col-md-8 input-group input-group-sm mb-3">
+				  <div class="input-group-prepend">
+				    <span class="input-group-text" id="inputGroup-sizing-sm"><i class="fa fa-envelope"></i></span>
+				  </div>
+				  <input type="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Email">
+				</div>
+				<div class="col-md-8 input-group input-group-sm mb-3">
+				  <div class="input-group-prepend">
+				    <span class="input-group-text" id="inputGroup-sizing-sm"><i class="fa fa-lock"></i></span>
+				  </div>
+				  <input type="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Password">
+				</div>
+				<div class="col-md-8 input-group input-group-sm mb-3">
+				  <div class="input-group-prepend">
+				    <span class="input-group-text" id="inputGroup-sizing-sm"><i class="fa fa-lock"></i></span>
+				  </div>
+				  <input type="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Re-type Password">
+				</div>
+				<div class="col-md-8 form-group">
+					<a href="login" class="btn btn-outline-success" role="button">SIGN ME UP</a>
+				</div>
+				<hr>
+				Already hav an account?
+				<a href="login" target="_self">Sign in</a>
+			</div>
+			<div class="col-md-1 or">
+				<span class="dot">OR</span>
+			</div>
+			<div class="im col-md-5">
+				<div class="social1"><h1>Sign in with</h1></div> 
+				<div class="social2"><h1>social network</h1></div>
+				<div class="socialbtn">
+				<a href="https://www.facebook.com" target="_blank">
+			  <button type="button" class="btnsize1 btn btn-primary btn-lg">Login with Facebook</Button>
+			    </a>
+				</div>
+				<div class="socialbtn">
+					<a href="https://www.twitter.com" target="_blank">
+			   <button type="button" class="btnsize2 btn btn-primary btn-lg">Login with Twitter</button>
+				</a>
+				</div>
+				<div class="socialbtn">
+					<a href="https://www.gmail.com" target="_blank">
+			   <button type="button" class="btnsize3 btn btn-primary btn-lg">Login with Google+</button>
+				</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+{% endblock %}
+
+
+		<!-- <form action="test1.py" method="post">
+			<input type = "text" name="uname" placeholder="enter name"></input>
+			<input type = "password" name="upass" placeholder="enter password"></input>
+			<button type="submit">login</button>
+		</form> 
+		<table border="1">
+		<thead>
+			<tr>
+				<th colspan="9"> Women_Shops </th>
+			</tr>
+			<tr>
+				<th>Type</th>
+				<th>Product</th>
+				<th>Price</th>
+				<th>Product</th>
+				<th>Price</th>
+				<th>Product</th>
+				<th>Price</th>
+				<th>Product</th>
+				<th>Price</th>
+			</tr>
+		</thead>
+			<tbody>
+				{% for val in womenshops %}
+					<tr>
+						{% if val.type == "Clothes" %}
+							<th>Clothes</th>
+							{% for i in val.value %}
+								<td>{{ i.Product }}</td>
+								<td>{{ i.Price }}</td>
+							{% endfor %}
+						{% endif %}	
+					</tr>
+					<tr>
+						{% if val.type == "Footware" %}
+							<th>Footware</th>
+							{% for i in val.value %}
+								<td>{{ i.Product }}</td>
+								<td>{{ i.Price }}</td>
+							{% endfor %}
+						{% endif %}	
+					</tr>
+					<tr>
+						{% if val.type == "Accessories" %}
+							<th>Accessories</th>
+							{% for i in val.value %}
+								<td>{{ i.Product }}</td>
+								<td>{{ i.Price }}</td>
+							{% endfor %}
+						{% endif %}	
+					</tr>
+				{% endfor %}
+			</tbody> 
+		</table> -->
+ 	<!-- </body>
+</html> -->

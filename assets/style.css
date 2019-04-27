@@ -1,0 +1,111 @@
+.box{
+		padding-top: 10px;
+	    padding-left: 75px;
+	    padding-bottom: 0px;
+	    font-family: "Times New Roman";
+	    color: black;
+	}
+.login_box{
+	padding-top: 10px;
+    padding-left: 35px;
+    padding-bottom: 0px;
+    font-family: "Times New Roman";
+    color: black;
+}
+
+/*.input{
+		padding-top: 5px;
+		padding-left: 6px;
+	}*/
+.input-container {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  width: 100%;
+  margin-top: 24px;
+  margin-bottom: 18px;
+}
+.border{
+			border: none !important;
+			border-bottom: 1px solid #000 !important;
+		}
+.login_border{
+				border: 2px solid darkslategray;
+				border-radius: 2px;
+
+			}
+.icon {
+    font-size: 20px !important;
+    padding: 10px 0px 0px 10px;
+    position: absolute;
+}
+.im{
+		background-image: url(/static/b.jpg);
+		padding-left: 95px !important;
+    	padding-right: 100px;
+    	position: initial;
+    	padding-bottom: 50px;
+	}
+.social{
+			padding-top: 50px;
+			padding-left: 125px;
+			font-size: 50px;
+			font-family: "Times New Roman";
+			color: black;
+
+		}
+.social1{
+			padding-top: 50px;
+			text-align: center;
+			font-family: "Times New Roman";
+			color: white;
+		}
+.social2{
+			text-align: center;
+			font-family: "Times New Roman";
+			color: white;
+		}
+.socialbtn{
+			padding-top: 10px;
+}
+.btnsize1{
+	padding-left: 34px;
+	padding-right: 50px;
+	background-color: #3b5998;
+	color:white;
+	border-style: none;
+
+}
+.btnsize2{
+	padding-left: 35px;
+	padding-right: 75px;
+	background-color: #38A1F3;
+	border-style: none;
+}
+.btnsize3{
+	padding-left: 35px;
+	padding-right: 60px;
+	background-color: #d34836;
+	border-style: none;
+}
+.remember{
+	padding-left: 15px !important;
+}
+.padding{
+	padding: 95px 15px 6px 219px;
+}
+.dot {
+      height: 34px;
+    width: 34px;
+    background-color: #bbb;
+    border-radius: 89%;
+    display: inline-block;
+}
+.or{
+	    margin-top: 200px;
+    /* margin-left: -25px; */
+    /* margin-right: -69px; */
+    margin-left: 425px;
+    position: absolute;
+    font-size: 20px;
+    text-align: center;
+}
