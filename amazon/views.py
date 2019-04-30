@@ -1,9 +1,12 @@
-# from amazon.models import LoginForm
+from amazon.forms import LoginForm, RegisterForm
+# from django.utils import timezone
 # from amazon.models import clothe
 # from amazon.models import footware
 # from amazon.models import accessories
-from amazon.models import RegisterForm
-from django.shortcuts import render,redirect 
+# from amazon.models import Register
+# from django.db.models import Q
+from django.shortcuts import render,redirect
+# from django.contrib.auth.models import User
 # from django.urls import path,include
 from django.http import HttpResponse
 from django.core.mail import send_mail
@@ -11,15 +14,39 @@ from django.core.mail import send_mail
 # from django.template import loader
 
 # Create your views here.
+def signin(request):
+    if request.method == "POST":
+      #Get the posted form
+        Register_Form = RegisterForm(request.POST)
+        if Register_Form.is_valid():
+            register = Register_Form.save(commit = False)
+            Login_Form = LoginForm(request.POST)
+            if Login_Form.is_valid():
+                register.save()
+                login = Login_Form.save(commit = False)
+                login.register_id = register.id
 
+                login.save()
+                return redirect('home')
+            else:
+                return render(request, "main.html", {"error_msg":"login is not valid"})
+        return render(request, "main.html", {"error_msg":"register is not valid"})
+    else:
+        return render(request, "main.html", {})
+
+def home(request):
+	return render(request, "home.html", {})
+
+def main(request):
+    return render(request,"main.html",{})
 
 def sendSimpleEmail(request):
    res = send_mail("love", "i love you jay", "khyatikansara23996@gmail.com", ["jayupadhyay11192@gmail.com"])
-   return HttpResponse("Success")
+   return HttpResponse(res)
 
 def insert_data(request):
    #Creating an entry
-   
+
 	womenshops = [{
 					'type':'Clothes',
 					'value':[
@@ -75,8 +102,8 @@ def insert_data(request):
 	# 	for k,v in i.items():
 	# 		print(k,v)
 	# 		l = len(v)
-	
-	# if womenshops[0]['type'] == "Clothes":	
+
+	# if womenshops[0]['type'] == "Clothes":
 	for data in womenshops[0]['value']:
 		print(data['Product'])
 		print(data['Price'])
@@ -85,77 +112,52 @@ def insert_data(request):
 	# print(len(d))
 
 	# for le in range(len(d)):
-		c = clothe.objects.create(Product = data['Product'],Price = data['Price'])
+	#	c = clothe.objects.create(Product = data['Product'],Price = data['Price'])
 
 		# Read ALL entries
-		c1 = clothe.objects.all()
+	#	c1 = clothe.objects.all()
 		res ='Printing all clothe entries in the DB : <br>'
-		for elt in c1:
-			res += elt.Product+"<br>"
+	#	for elt in c1:
+		#	res += elt.Product+"<br>"
 	# elif womenshops[1]['type'] == "Footware":
 	for data1 in womenshops[1]['value']:
 		# 	print(data1['Product'])
 		# 	print(data1['Price'])
-		f = footware.objects.create(Product = data1['Product'],Price = data1['Price'])
-		
+	#	f = footware.objects.create(Product = data1['Product'],Price = data1['Price'])
+
 		#Read ALL entries
-		f1 = footware.objects.all()
+	#	f1 = footware.objects.all()
 		res ='Printing all Dreamreal entries in the DB : <br>'
 
-		for elt in f1:
-			res += elt.Product+"<br>"
-		
+	#	for elt in f1:
+			#res += elt.Product+"<br>"
+
 		# Delete an entry
 		res += '<br> Deleting an entry <br>'
-		f1.delete()
-		f2 = data1(Product = "Sandals", Price = 800)
-		res += 'Updating entry<br>'
-		f3 = footware.objects.get(Product = 'Sandals')
-		print(data1)
-		f3.Product = 'bellies'
-	   
+		#f1.delete()
+	#	f2 = data1(Product = "Sandals", Price = 800)
+	#	res += 'Updating entry<br>'
+	#	f3 = footware.objects.get(Product = 'Sandals')
+	#	print(data1)
+		#f3.Product = 'bellies'
+
 	   # dreamreal.save()
 
 	   # dreamreal.save()
 	# elif womenshops[2]['type'] == "Accessories":
-	for data2 in womenshops[2]['value']:
+	#for data2 in womenshops[2]['value']:
 		# 	print(data2['Product'])
 		# 	print(data2['Price'])
-		a = accessories.objects.create(Product = data2['Product'],Price = data2['Price'])
+		#a = accessories.objects.create(Product = data2['Product'],Price = data2['Price'])
 		#Read ALL entries
 		# a1 = accessories.objects.all()
 		# res ='Printing all footware entries in the DB : <br>'
 		# for elt in a1:
 		# 	res += elt.Product+"<br>"
-	else:
-		print("no data found")
 	# return HttpResponse(res)
-	return render(request, "amazon/view.html",{"wo":womenshops})
+	#return render(request, "amazon/view.html",{"wo":womenshops})
 
-def register(request):
-	# empl = employee_de.objects.filter()
-# 	print("hiiiii")
-# 	# print(empl)
-	return render(request, "register.html",{})
 
-def login(request):
-   # username = "not logged in"
-   
-   # if request.method == "POST":
-   #    #Get the posted form
-   #    MyLoginForm = login(request.POST)
-      
-   #    if MyLoginForm.is_valid():
-   #       username = MyLoginForm.cleaned_data['username']
-
-   # else:
-   #    MyLoginForm = login(request.POST)
-
-   # return HttpResponse("Success")
-   return render(request, "login.html", {})
-def home(request):
-	return render(request, "home.html", {})
- 
 # def login(request):
 # 	username = "not logged in"
 
@@ -169,7 +171,7 @@ def home(request):
 # 	return render(request, 'login.html', {"username" : username})
 	# return render(request, "login.html",{"username" : username})
 	# return redirect(register)
-# def amazon(request):	 
+# def amazon(request):
 #     clothes = [{
 #                 'type': 'women',
 #                 'values': [
@@ -238,6 +240,6 @@ def home(request):
 #             }]
 
 
-	# return HttpResponse(template.render(context,request))	
+	# return HttpResponse(template.render(context,request))
 # def hello(request):
 #    return render(request, "myapp/template/hello.html", {})

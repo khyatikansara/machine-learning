@@ -18,8 +18,8 @@ from django.urls import path,include
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
-	path('amazon/',include('amazon.urls')),
     path('admin/', admin.site.urls),
+    path('amazon/',include('amazon.urls')),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

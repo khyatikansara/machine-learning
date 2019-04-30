@@ -25,7 +25,7 @@ SECRET_KEY = '9oo%aey3klr!klaux)92*6^#2$rdk7&gkk2+4i#6$yz+6r!nm7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['khyatikansara.pythonanywhere.com']
 
 
 # Application definition
@@ -55,7 +55,7 @@ ROOT_URLCONF = 'myfirstapp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["H:/Agile class/myfirstapp/amazon/template/amazon"],
+        'DIRS': ["/home/khyatikansara/khyatikansara.pythonanywhere.com/amazon/template/amazon"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -76,12 +76,12 @@ WSGI_APPLICATION = 'myfirstapp.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'amazon',
-        'USER': 'postgres',
-        'PASSWORD': 'pgadmin',
-        'HOST':'127.0.0.1',
-        'PORT':'5432',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'khyatikansara$amazon',
+        'USER': 'khyatikansara',
+        'PASSWORD': 'khyati3639',
+        'HOST':'khyatikansara.mysql.pythonanywhere-services.com',
+        'PORT':'3306',
     }
 }
 
@@ -133,3 +133,7 @@ EMAIL_USE_TLS = True
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR,'assets'),
     )
+
+MEDIA_URL = '/media/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
